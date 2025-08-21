@@ -1,4 +1,4 @@
-package oncall.constant;
+package oncall.domain;
 
 public enum Holiday {
 
@@ -13,5 +13,5 @@ public enum Holiday {
 
     Holiday(String day) {
     }
-    
+
 }
