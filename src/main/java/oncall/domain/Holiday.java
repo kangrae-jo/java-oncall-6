@@ -11,7 +11,10 @@ public enum Holiday {
     DAY_1009("1009"),
     DAY_1225("1225");
 
-    Holiday(String day) {
+    private final String monthAndDay;
+
+    Holiday(String monthAndDay) {
+        this.monthAndDay = monthAndDay;
     }
 
 }

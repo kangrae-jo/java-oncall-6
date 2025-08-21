@@ -8,4 +8,8 @@ public class Day {
         this.day = day;
     }
 
+    public Day next() {
+        return new Day(String.valueOf(Integer.parseInt(day) + 1));
+    }
+
 }

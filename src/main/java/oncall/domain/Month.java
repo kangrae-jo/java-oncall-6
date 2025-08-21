@@ -9,6 +9,17 @@ public class Month {
         this.month = month;
     }
 
+    public int getEndOfMonth() {
+        int intMonth = Integer.parseInt(month);
+        if (intMonth == 2) {
+            return 28;
+        }
+        if (intMonth == 4 || intMonth == 6 || intMonth == 9 || intMonth == 11) {
+            return 30;
+        }
+        return 31;
+    }
+
     private void validate(String month) {
         try {
             int intMonth = Integer.parseInt(month);

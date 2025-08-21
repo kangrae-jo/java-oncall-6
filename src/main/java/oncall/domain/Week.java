@@ -10,7 +10,17 @@ public enum Week {
     SAT("토", true),
     SUN("일", true);
 
+    private final String ko;
+    private final boolean holiday;
+
     Week(String ko, Boolean holiday) {
+        this.ko = ko;
+        this.holiday = holiday;
+    }
+
+    public Week next() {
+        Week[] values = Week.values();
+        return values[(this.ordinal() + 1) % values.length];
     }
 
 }
