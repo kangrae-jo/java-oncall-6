@@ -18,6 +18,15 @@ public enum Week {
         this.holiday = holiday;
     }
 
+    public static Week fromKorean(String ko) {
+        for (Week week : values()) {
+            if (week.ko.equals(ko)) {
+                return week;
+            }
+        }
+        throw new IllegalArgumentException("[ERROR] 월은 월화수목금 중에 하나를 입력하세요.");
+    }
+
     public Week next() {
         Week[] values = Week.values();
         return values[(this.ordinal() + 1) % values.length];

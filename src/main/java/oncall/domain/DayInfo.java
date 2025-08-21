@@ -9,7 +9,7 @@ public class DayInfo {
     public DayInfo(String month, String day, String week) {
         this.month = new Month(month);
         this.day = new Day(day);
-        this.week = Week.valueOf(week);
+        this.week = Week.fromKorean(week);
     }
 
     private DayInfo(Month month, Day day, Week week) {

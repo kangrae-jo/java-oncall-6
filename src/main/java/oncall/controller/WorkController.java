@@ -6,7 +6,6 @@ import oncall.view.InputView;
 
 public class WorkController {
 
-
     public void makeCalendar() {
         String[] MonthAndWeek = InputView.readStartMonthAndWeek();
         DayInfo startDay = new DayInfo(MonthAndWeek[0], "1", MonthAndWeek[1]);
