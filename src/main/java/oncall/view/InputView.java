@@ -10,4 +10,8 @@ public class InputView {
         return new String[]{month, week};
     }
 
+    public static String readWorkerNames() {
+        return Console.readLine();
+    }
+
 }
