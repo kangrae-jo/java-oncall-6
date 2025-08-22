@@ -1,16 +1,16 @@
 package oncall;
 
 import java.util.List;
-import oncall.controller.WorkController;
+import oncall.controller.WorkManager;
 import oncall.domain.Calendar;
 
 public class Application {
 
     public static void main(String[] args) {
-        WorkController controller = new WorkController();
+        WorkManager manager = new WorkManager();
 
-        Calendar calendar = controller.makeCalendar();
-        List<String> workerNames = controller.getWorkerNames();
+        Calendar calendar = manager.makeCalendar();
+        List<String> workerNames = manager.getWorkerNames();
     }
 
 }

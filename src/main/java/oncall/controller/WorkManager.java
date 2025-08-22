@@ -6,7 +6,7 @@ import oncall.domain.Calendar;
 import oncall.domain.DayInfo;
 import oncall.view.InputView;
 
-public class WorkController {
+public class WorkManager {
 
     public Calendar makeCalendar() {
         String[] MonthAndWeek = InputView.readStartMonthAndWeek();
