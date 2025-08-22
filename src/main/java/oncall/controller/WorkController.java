@@ -1,16 +1,24 @@
 package oncall.controller;
 
+import java.util.Arrays;
+import java.util.List;
 import oncall.domain.Calendar;
 import oncall.domain.DayInfo;
 import oncall.view.InputView;
 
 public class WorkController {
 
-    public void makeCalendar() {
+    public Calendar makeCalendar() {
         String[] MonthAndWeek = InputView.readStartMonthAndWeek();
         DayInfo startDay = new DayInfo(MonthAndWeek[0], "1", MonthAndWeek[1]);
 
-        Calendar calendar = new Calendar(startDay);
+        return new Calendar(startDay);
+    }
+
+    public List<String> getWorkerNames() {
+        String workerNames = InputView.readWorkerNames();
+
+        return Arrays.stream(workerNames.split(",")).toList();
     }
 
 }
