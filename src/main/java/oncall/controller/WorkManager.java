@@ -1,9 +1,8 @@
 package oncall.controller;
 
-import java.util.Arrays;
-import java.util.List;
 import oncall.domain.Calendar;
 import oncall.domain.DayInfo;
+import oncall.domain.WorkerNames;
 import oncall.view.InputView;
 
 public class WorkManager {
@@ -15,10 +14,10 @@ public class WorkManager {
         return new Calendar(startDay);
     }
 
-    public List<String> getWorkerNames() {
+    public WorkerNames getWorkerNames() {
         String workerNames = InputView.readWorkerNames();
 
-        return Arrays.stream(workerNames.split(",")).toList();
+        return new WorkerNames(workerNames);
     }
 
 }

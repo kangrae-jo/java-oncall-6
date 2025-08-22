@@ -1,8 +1,8 @@
 package oncall;
 
-import java.util.List;
 import oncall.controller.WorkManager;
 import oncall.domain.Calendar;
+import oncall.domain.WorkerNames;
 
 public class Application {
 
@@ -10,7 +10,7 @@ public class Application {
         WorkManager manager = new WorkManager();
 
         Calendar calendar = manager.makeCalendar();
-        List<String> workerNames = manager.getWorkerNames();
+        WorkerNames workerNames = manager.getWorkerNames();
     }
 
 }
