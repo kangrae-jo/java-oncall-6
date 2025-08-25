@@ -11,11 +11,11 @@ public enum Week {
     SUN("일", true);
 
     private final String ko;
-    private final boolean holiday;
+    private final boolean weekend;
 
-    Week(String ko, Boolean holiday) {
+    Week(String ko, Boolean weekend) {
         this.ko = ko;
-        this.holiday = holiday;
+        this.weekend = weekend;
     }
 
     public static Week fromKorean(String ko) {

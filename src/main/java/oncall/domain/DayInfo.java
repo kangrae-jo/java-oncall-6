@@ -2,9 +2,10 @@ package oncall.domain;
 
 public class DayInfo {
 
-    private final Month month;   // 월
-    private final Day day;       // 일
-    private final Week week;     // 요일
+    private final Month month;          // 월
+    private final Day day;              // 일
+    private final Week week;            // 요일
+    private final String name = null;   // 당번
 
     public DayInfo(String month, String day, String week) {
         this.month = new Month(month);
