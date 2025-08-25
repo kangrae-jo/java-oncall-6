@@ -20,6 +20,10 @@ public class Month {
         return 31;
     }
 
+    public boolean isEqualTo(String month) {
+        return this.month.equals(month);
+    }
+
     private void validate(String month) {
         try {
             int intMonth = Integer.parseInt(month);

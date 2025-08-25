@@ -12,4 +12,8 @@ public class Day {
         return new Day(String.valueOf(Integer.parseInt(day) + 1));
     }
 
+    public boolean isEqualTo(String day) {
+        return this.day.equals(day);
+    }
+
 }

@@ -14,6 +14,14 @@ public class WorkerNames {
         this.names = nameList;
     }
 
+    public String get(int index) {
+        return names.get(index);
+    }
+
+    public int size() {
+        return names.size();
+    }
+
     private List<String> toList(String names) {
         try {
             String[] splitNames = names.split(",");

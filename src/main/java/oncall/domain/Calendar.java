@@ -18,4 +18,18 @@ public class Calendar {
         }
     }
 
+    public void makeSchedule(WorkerNames forWeek, WorkerNames forDayOff) {
+        int weekIndex = 0, dayOffIndex = 0;
+        for (DayInfo dayInfo : calendar) {
+            if (dayInfo.isWeekend() || dayInfo.isHoliday()) {
+                dayInfo.setName(forDayOff.get(dayOffIndex++));
+            }
+            dayOffIndex %= forDayOff.size();
+            if (!dayInfo.isWeekend()) {
+                dayInfo.setName(forWeek.get(weekIndex++));
+            }
+            weekIndex %= forWeek.size();
+        }
+    }
+
 }

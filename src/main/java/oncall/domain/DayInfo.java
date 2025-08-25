@@ -5,7 +5,7 @@ public class DayInfo {
     private final Month month;          // 월
     private final Day day;              // 일
     private final Week week;            // 요일
-    private final String name = null;   // 당번
+    private String name = null;   // 당번
 
     public DayInfo(String month, String day, String week) {
         this.month = new Month(month);
@@ -25,6 +25,18 @@ public class DayInfo {
 
     public DayInfo next() {
         return new DayInfo(month, day.next(), week.next());
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isWeekend() {
+        return week.isWeekend();
+    }
+
+    public boolean isHoliday() {
+        return Holiday.isHoliday(month, day);
     }
 
 }

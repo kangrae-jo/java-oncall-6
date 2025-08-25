@@ -32,4 +32,8 @@ public enum Week {
         return values[(this.ordinal() + 1) % values.length];
     }
 
+    public boolean isWeekend() {
+        return this.weekend;
+    }
+
 }
