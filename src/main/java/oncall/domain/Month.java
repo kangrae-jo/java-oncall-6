@@ -24,6 +24,11 @@ public class Month {
         return this.month.equals(month);
     }
 
+    @Override
+    public String toString() {
+        return month + "월";
+    }
+
     private void validate(String month) {
         try {
             int intMonth = Integer.parseInt(month);

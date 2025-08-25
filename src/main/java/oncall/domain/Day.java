@@ -16,4 +16,9 @@ public class Day {
         return this.day.equals(day);
     }
 
+    @Override
+    public String toString() {
+        return day + "일";
+    }
+
 }

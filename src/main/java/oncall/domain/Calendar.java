@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Calendar {
 
-    private List<DayInfo> calendar;
+    private final List<DayInfo> calendar;
 
     public Calendar(DayInfo start) {
         int endOfMonth = start.size();
@@ -18,7 +18,7 @@ public class Calendar {
         }
     }
 
-    public void makeSchedule(WorkerNames forWeek, WorkerNames forDayOff) {
+    public void setNames(WorkerNames forWeek, WorkerNames forDayOff) {
         int weekIndex = 0, dayOffIndex = 0;
         for (DayInfo dayInfo : calendar) {
             if (dayInfo.isWeekend() || dayInfo.isHoliday()) {
@@ -30,6 +30,15 @@ public class Calendar {
             }
             weekIndex %= forWeek.size();
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (DayInfo dayInfo : calendar) {
+            sb.append(dayInfo.toString());
+        }
+        return sb.toString();
     }
 
 }

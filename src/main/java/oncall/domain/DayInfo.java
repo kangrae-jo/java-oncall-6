@@ -2,10 +2,10 @@ package oncall.domain;
 
 public class DayInfo {
 
-    private final Month month;          // 월
-    private final Day day;              // 일
-    private final Week week;            // 요일
-    private String name = null;   // 당번
+    private final Month month;  // 월
+    private final Day day;      // 일
+    private final Week week;    // 요일
+    private String name = null; // 당번
 
     public DayInfo(String month, String day, String week) {
         this.month = new Month(month);
@@ -37,6 +37,13 @@ public class DayInfo {
 
     public boolean isHoliday() {
         return Holiday.isHoliday(month, day);
+    }
+
+    @Override
+    public String toString() {
+        return month.toString() + " "
+                + day.toString() + " "
+                + name + "\n";
     }
 
 }
