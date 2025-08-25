@@ -43,6 +43,7 @@ public class DayInfo {
     public String toString() {
         return month.toString() + " "
                 + day.toString() + " "
+                + week.toString() + (isHoliday() ? "(휴일) " : " ")
                 + name + "\n";
     }
 

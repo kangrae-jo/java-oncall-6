@@ -36,4 +36,9 @@ public enum Week {
         return this.weekend;
     }
 
+    @Override
+    public String toString() {
+        return this.ko;
+    }
+
 }
