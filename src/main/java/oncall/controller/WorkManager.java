@@ -20,8 +20,8 @@ public class WorkManager {
         }
     }
 
-    public WorkerNames getWorkerNames() {
-        String workerNames = InputView.readWorkerNames();
+    public WorkerNames getWorkerNames(String type) {
+        String workerNames = InputView.readWorkerNames(type);
 
         return new WorkerNames(workerNames);
     }
