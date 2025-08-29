@@ -18,6 +18,7 @@ public class Calendar {
         }
     }
 
+    // TODO: 틀린 로직 변경
     public void setNames(WorkerNames forWeek, WorkerNames forDayOff) {
         int weekIndex = 0, dayOffIndex = 0;
         for (DayInfo dayInfo : calendar) {
