@@ -7,10 +7,11 @@ public class DayInfo {
     private final Week week;    // 요일
     private String name = null; // 당번
 
-    public DayInfo(String month, String day, String week) {
-        this.month = new Month(month);
+    public DayInfo(String monthAndWeek, String day) {
+        String[] split = splitMonthAndWeek(monthAndWeek);
+        this.month = new Month(split[0]);
         this.day = new Day(day);
-        this.week = Week.fromKorean(week);
+        this.week = Week.fromKorean(split[1]);
     }
 
     private DayInfo(Month month, Day day, Week week) {
@@ -45,6 +46,18 @@ public class DayInfo {
                 + day.toString() + " "
                 + week.toString() + (isHoliday() ? "(휴일) " : " ")
                 + name + "\n";
+    }
+
+    private String[] splitMonthAndWeek(String monthAndWeek) {
+        try {
+            String[] split = monthAndWeek.split(",");
+            if (split.length == 2) {
+                return split;
+            }
+        } catch (Exception e) {
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
+        }
+        throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
     }
 
 }

@@ -36,9 +36,11 @@ public class Month {
                 return;
             }
         } catch (Exception e) {
-            throw new IllegalArgumentException("[ERROR] 월은 숫자여야 합니다.");
+            throw new IllegalArgumentException(" [ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
+            //throw new IllegalArgumentException("[ERROR] 월은 숫자여야 합니다.");
         }
-        throw new IllegalArgumentException("[ERROR] 월은 1 ~ 12까지의 숫자입니다.");
+        throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
+        //throw new IllegalArgumentException("[ERROR] 월은 1 ~ 12까지의 숫자입니다.");
     }
 
 }
