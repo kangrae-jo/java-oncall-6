@@ -1,7 +1,7 @@
 package oncall.controller;
 
 import oncall.domain.Calendar;
-import oncall.domain.WorkerNames;
+import oncall.domain.WorkerAllocation;
 import oncall.view.OutputView;
 
 public class ScheduleManager {
@@ -12,8 +12,9 @@ public class ScheduleManager {
         this.calendar = calendar;
     }
 
-    public void makeSchedule(WorkerNames forWeek, WorkerNames forDayOff) {
-        calendar.setNames(forWeek, forDayOff);
+    // TODO: Getter 쓰는 구조 개선
+    public void makeSchedule(WorkerAllocation workerAllocation) {
+        calendar.setNames(workerAllocation.getForWeek(), workerAllocation.getForDayOff());
     }
 
     public void printSchedules() {
