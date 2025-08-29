@@ -5,6 +5,7 @@ import oncall.controller.WorkManager;
 import oncall.domain.Calendar;
 import oncall.domain.WorkerAllocation;
 
+
 public class Application {
 
     public static void main(String[] args) {
@@ -14,6 +15,7 @@ public class Application {
 
         ScheduleManager scheduleManager = new ScheduleManager(calendar);
         scheduleManager.makeSchedule(workerAllocation);
+
         scheduleManager.printSchedules();
     }
 
