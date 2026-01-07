@@ -1,7 +1,9 @@
 package oncall.controller;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Supplier;
 import oncall.domain.Employee;
 import oncall.domain.WorkingType;
@@ -33,8 +35,18 @@ public class Controller {
 
     private Map<WorkingType, List<Employee>> readWorkingNames() {
         return retryUntilValid(() -> {
-            Map<WorkingType, String> workings = inputView.readWorkingNames();
-            return InputParser.parseWorkings(workings);
+            Map<WorkingType, List<Employee>> workings = InputParser.parseWorkings(inputView.readWorkingNames());
+            for (WorkingType type : WorkingType.values()) {
+                List<Employee> employees = workings.get(type);
+                if (employees.size() < 5 || employees.size() > 35) {
+                    throw new IllegalArgumentException("유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
+                }
+                Set<Employee> set = new HashSet<>(employees);
+                if (set.size() != employees.size()) {
+                    throw new IllegalArgumentException("유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
+                }
+            }
+            return workings;
         });
     }
 
