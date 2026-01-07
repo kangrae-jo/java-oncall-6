@@ -1,6 +1,6 @@
 package oncall.domain;
 
-public class Date {
+public class Date implements Comparable<Date> {
 
     private final int month;
     private final int day;
@@ -12,6 +12,14 @@ public class Date {
 
     public static Date of(int month, int day) {
         return new Date(month, day);
+    }
+
+    @Override
+    public int compareTo(Date other) {
+        if (this.month != other.month) {
+            return Integer.compare(this.month, other.month);
+        }
+        return Integer.compare(this.day, other.day);
     }
 
 }

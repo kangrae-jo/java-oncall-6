@@ -4,7 +4,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.function.Supplier;
+import oncall.domain.DateAndDayOfWeek;
 import oncall.domain.Employee;
 import oncall.domain.WorkingType;
 import oncall.dto.MonthAndDayOfWeek;
@@ -25,6 +27,9 @@ public class Controller {
     public void run() {
         MonthAndDayOfWeek monthAndDayOfWeek = readStartDayForWork();
         Map<WorkingType, List<Employee>> workings = readWorkingNames();
+
+        Map<DateAndDayOfWeek, Employee> result = makeWorkingList(workings, monthAndDayOfWeek);
+        outputView.printWorkings();
     }
 
     private MonthAndDayOfWeek readStartDayForWork() {
@@ -48,6 +53,12 @@ public class Controller {
             }
             return workings;
         });
+    }
+
+    private Map<DateAndDayOfWeek, Employee> makeWorkingList(Map<WorkingType, List<Employee>> workings,
+                                                            MonthAndDayOfWeek monthAndDayOfWeek) {
+        Map<DateAndDayOfWeek, Employee> list = new TreeMap<>();
+        
     }
 
     private <T> T retryUntilValid(Supplier<T> supplier) {
