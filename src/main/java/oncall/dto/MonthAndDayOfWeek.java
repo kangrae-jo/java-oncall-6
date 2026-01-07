@@ -3,8 +3,8 @@ package oncall.dto;
 import oncall.domain.DayOfWeek;
 import oncall.domain.Month;
 
-public record DateAndWeek(
-        Month date,
+public record MonthAndDayOfWeek(
+        Month month,
         DayOfWeek dayOfWeek
 ) {
 

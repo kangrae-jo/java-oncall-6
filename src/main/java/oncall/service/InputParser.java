@@ -8,17 +8,18 @@ import oncall.domain.DayOfWeek;
 import oncall.domain.Employee;
 import oncall.domain.Month;
 import oncall.domain.WorkingType;
-import oncall.dto.DateAndWeek;
+import oncall.dto.MonthAndDayOfWeek;
 
 public class InputParser {
 
     private InputParser() {
     }
 
-    public static DateAndWeek parseDateAndWeek(String input) {
+    public static MonthAndDayOfWeek parseDateAndWeek(String input) {
         try {
             String[] split = input.split(",");
-            return new DateAndWeek(new Month(Integer.parseInt(split[0].strip())), DayOfWeek.from(split[1].strip()));
+            return new MonthAndDayOfWeek(new Month(Integer.parseInt(split[0].strip())),
+                    DayOfWeek.from(split[1].strip()));
         } catch (Exception e) {
             throw new IllegalArgumentException(e.getMessage());
         }

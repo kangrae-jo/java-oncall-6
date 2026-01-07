@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.function.Supplier;
 import oncall.domain.Employee;
 import oncall.domain.WorkingType;
-import oncall.dto.DateAndWeek;
+import oncall.dto.MonthAndDayOfWeek;
 import oncall.service.InputParser;
 import oncall.view.InputView;
 import oncall.view.OutputView;
@@ -23,11 +23,11 @@ public class Controller {
     }
 
     public void run() {
-        DateAndWeek dateAndWeek = readStartDayForWork();
+        MonthAndDayOfWeek monthAndDayOfWeek = readStartDayForWork();
         Map<WorkingType, List<Employee>> workings = readWorkingNames();
     }
 
-    private DateAndWeek readStartDayForWork() {
+    private MonthAndDayOfWeek readStartDayForWork() {
         return retryUntilValid(() ->
                 InputParser.parseDateAndWeek(inputView.readStartDayForWork())
         );
