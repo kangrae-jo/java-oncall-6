@@ -15,4 +15,8 @@ public class Month {
         }
     }
 
+    public int getMonth() {
+        return month;
+    }
+
 }

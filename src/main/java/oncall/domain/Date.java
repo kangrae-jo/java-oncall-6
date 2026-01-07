@@ -2,12 +2,12 @@ package oncall.domain;
 
 public class Date implements Comparable<Date> {
 
-    private final int month;
-    private final int day;
+    private final Month month;
+    private final Day day;
 
     private Date(int month, int day) {
-        this.month = month;
-        this.day = day;
+        this.month = new Month(month);
+        this.day = new Day(day);
     }
 
     public static Date of(int month, int day) {
@@ -17,9 +17,9 @@ public class Date implements Comparable<Date> {
     @Override
     public int compareTo(Date other) {
         if (this.month != other.month) {
-            return Integer.compare(this.month, other.month);
+            return Integer.compare(this.month.getMonth(), other.month.getMonth());
         }
-        return Integer.compare(this.day, other.day);
+        return Integer.compare(this.day.getDay(), other.day.getDay());
     }
 
 }
