@@ -2,12 +2,8 @@ package oncall.view;
 
 public class OutputView {
 
-    public static void printError(String error) {
-        System.out.println(error);
+    public void printErrorMsg(String msg) {
+        System.out.println("[ERROR] " + msg);
     }
-
-    public static void printSchedules(String dayInfo) {
-        System.out.println(dayInfo);
-    }
-
+    
 }

@@ -2,36 +2,21 @@ package oncall.domain;
 
 public enum Holiday {
 
-    DAY_0101("1", "1"),
-    DAY_0301("3", "1"),
-    DAY_0505("5", "5"),
-    DAY_0606("6", "6"),
-    DAY_0815("8", "15"),
-    DAY_1003("10", "3"),
-    DAY_1009("10", "9"),
-    DAY_1225("12", "25");
+    DAY0101("신정", Date.of(1, 1)),
+    DAY0301("삼일절", Date.of(3, 1)),
+    DAY0505("어린이날", Date.of(5, 5)),
+    DAY0606("현충일", Date.of(6, 6)),
+    DAY0815("광복절", Date.of(8, 15)),
+    DAY1003("개천절", Date.of(10, 3)),
+    DAY1009("한글날", Date.of(10, 9)),
+    DAY1225("성탄절", Date.of(12, 25));
 
-    private final String month;
-    private final String day;
+    private final String name;
+    private final Date date;
 
-    Holiday(String month, String day) {
-        this.month = month;
-        this.day = day;
-    }
-
-    public static boolean isHoliday(Month month, Day day) {
-        boolean flag = false;
-        for (Holiday holiday : Holiday.values()) {
-            if (holiday.isEqualTo(month, day)) {
-                flag = true;
-                break;
-            }
-        }
-        return flag;
-    }
-
-    private boolean isEqualTo(Month month, Day day) {
-        return month.isEqualTo(this.month) && day.isEqualTo(this.day);
+    Holiday(String name, Date date) {
+        this.name = name;
+        this.date = date;
     }
 
 }

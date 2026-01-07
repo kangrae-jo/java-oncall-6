@@ -2,23 +2,21 @@ package oncall.domain;
 
 public class Day {
 
-    private final String day;
+    private final int day;
 
-    public Day(String day) {
+    public Day(int day) {
+        validate(day);
         this.day = day;
     }
 
-    public Day next() {
-        return new Day(String.valueOf(Integer.parseInt(day) + 1));
+    private void validate(int day) {
+        if (1 > day || day > 28) {
+            throw new IllegalArgumentException("유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
+        }
     }
 
-    public boolean isEqualTo(String day) {
-        return this.day.equals(day);
-    }
-
-    @Override
-    public String toString() {
-        return day + "일";
+    public int getDay() {
+        return day;
     }
 
 }
