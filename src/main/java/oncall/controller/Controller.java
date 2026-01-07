@@ -1,6 +1,8 @@
 package oncall.controller;
 
 import java.util.function.Supplier;
+import oncall.dto.DateAndWeek;
+import oncall.service.InputParser;
 import oncall.view.InputView;
 import oncall.view.OutputView;
 
@@ -15,7 +17,14 @@ public class Controller {
     }
 
     public void run() {
+        readStartDayForWork();
 
+    }
+
+    private DateAndWeek readStartDayForWork() {
+        return retryUntilValid(() ->
+                InputParser.parseDateAndWeek(inputView.readStartDayForWork())
+        );
     }
 
     private <T> T retryUntilValid(Supplier<T> supplier) {
