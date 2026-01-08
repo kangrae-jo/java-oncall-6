@@ -1,44 +1,53 @@
 package oncall.domain;
 
+import static oncall.config.AppConfig.ERROR_MSG;
+
 public enum Week {
 
-    MON("월", false),
-    TUE("화", false),
-    WEN("수", false),
-    THU("목", false),
-    FRI("금", false),
-    SAT("토", true),
-    SUN("일", true);
+    MON("월", 0),
+    TUE("화", 1),
+    WED("수", 2),
+    THU("목", 3),
+    FRI("금", 4),
+    SAT("토", 5),
+    SUN("일", 6);
 
-    private final String ko;
-    private final boolean weekend;
+    private final String name;
+    private final int order;
 
-    Week(String ko, Boolean weekend) {
-        this.ko = ko;
-        this.weekend = weekend;
+    Week(String name, int order) {
+        this.name = name;
+        this.order = order;
     }
 
-    public static Week fromKorean(String ko) {
-        for (Week week : values()) {
-            if (week.ko.equals(ko)) {
+    public static Week from(String name) {
+        for (Week week : Week.values()) {
+            if (week.name.equals(name)) {
                 return week;
             }
         }
-        throw new IllegalArgumentException("[ERROR] 월은 월화수목금 중에 하나를 입력하세요.");
+        throw new IllegalArgumentException(ERROR_MSG);
     }
 
-    public Week next() {
-        Week[] values = Week.values();
-        return values[(this.ordinal() + 1) % values.length];
+    public static Week from(int order) {
+        for (Week week : Week.values()) {
+            if (week.order == order) {
+                return week;
+            }
+        }
+        throw new IllegalArgumentException(ERROR_MSG);
     }
 
     public boolean isWeekend() {
-        return this.weekend;
+        return this.order == 5 || this.order == 6;
     }
 
-    @Override
-    public String toString() {
-        return this.ko;
+    public Week next() {
+        return Week.from((this.order + 1) % 7);
+    }
+
+    public String getName() {
+        return name;
     }
 
 }
