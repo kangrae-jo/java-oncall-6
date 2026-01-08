@@ -14,4 +14,8 @@ public class OutputView {
         System.out.print("(휴일)");
     }
 
+    public void printName(String name) {
+        System.out.println(" " + name);
+    }
+
 }

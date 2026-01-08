@@ -11,6 +11,10 @@ public class Crew {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     private void validateNameLength(String name) {
         if (name.isEmpty() || name.length() > 5) {
             throw new IllegalArgumentException(ERROR_MSG);

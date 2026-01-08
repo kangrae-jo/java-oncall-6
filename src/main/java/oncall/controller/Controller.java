@@ -1,9 +1,13 @@
 package oncall.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 import oncall.InputParser;
+import oncall.domain.Crew;
 import oncall.domain.Crews;
 import oncall.domain.MonthAndWeek;
+import oncall.domain.Type;
 import oncall.view.InputView;
 import oncall.view.OutputView;
 
@@ -21,12 +25,18 @@ public class Controller {
         MonthAndWeek monthAndWeek = readMonthAndWeek();
         Crews crews = readCrews();
 
+        List<Crew> roaster = new ArrayList<>();
         while (monthAndWeek != null) {
             printMonthAndWeek(monthAndWeek);
+            Type type = Type.WEEKDAY;
             if (monthAndWeek.isHoliday()) {
                 outputView.printHoliday();
+                type = Type.WEEKEND;
             }
-            System.out.println();
+
+            String name = crews.addRoaster(roaster, type);
+            outputView.printName(name);
+
             monthAndWeek = monthAndWeek.next();
         }
     }
