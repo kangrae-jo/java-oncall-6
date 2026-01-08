@@ -1,6 +1,9 @@
 package oncall.controller;
 
+import java.util.List;
 import java.util.function.Supplier;
+import oncall.InputParser;
+import oncall.domain.Crew;
 import oncall.view.InputView;
 import oncall.view.OutputView;
 
@@ -15,7 +18,11 @@ public class Controller {
     }
 
     public void run() {
+        List<Crew> weekday = readCrews();
+    }
 
+    private List<Crew> readCrews() {
+        return retryUntilValid(() -> InputParser.parseNames(inputView.readCrews()));
     }
 
     private <T> T retryUntilValid(Supplier<T> supplier) {
