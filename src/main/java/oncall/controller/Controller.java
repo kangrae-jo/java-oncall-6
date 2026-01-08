@@ -20,6 +20,14 @@ public class Controller {
     public void run() {
         MonthAndWeek monthAndWeek = readMonthAndWeek();
         Crews crews = readCrews();
+
+        while (monthAndWeek != null) {
+            outputView.printMonthAndWeek(monthAndWeek.getDayValue(),
+                    monthAndWeek.getMonthValue(),
+                    monthAndWeek.getWeek()
+            );
+            monthAndWeek = monthAndWeek.next();
+        }
     }
 
     private MonthAndWeek readMonthAndWeek() {

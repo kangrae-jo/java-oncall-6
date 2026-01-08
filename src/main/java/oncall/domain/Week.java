@@ -28,4 +28,22 @@ public enum Week {
         }
         throw new IllegalArgumentException(ERROR_MSG);
     }
+
+    public static Week from(int order) {
+        for (Week week : Week.values()) {
+            if (week.order == order) {
+                return week;
+            }
+        }
+        throw new IllegalArgumentException(ERROR_MSG);
+    }
+
+    public Week next() {
+        return Week.from((this.order + 1) % 7);
+    }
+
+    public String getName() {
+        return name;
+    }
+
 }
