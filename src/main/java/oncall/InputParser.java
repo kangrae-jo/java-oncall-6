@@ -4,9 +4,13 @@ import static oncall.config.AppConfig.ERROR_MSG;
 
 import java.time.MonthDay;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import oncall.domain.Crew;
+import oncall.domain.Crews;
 import oncall.domain.MonthAndWeek;
+import oncall.domain.Type;
 import oncall.domain.Week;
 
 public class InputParser {
@@ -25,12 +29,17 @@ public class InputParser {
         }
     }
 
-    public static List<Crew> parseNames(String input) {
+    public static Crews parseNames(Map<Type, String> inputs) {
         try {
-            String[] split = input.split(",");
-            return Arrays.stream(split)
-                    .map(Crew::new)
-                    .toList();
+            Map<Type, List<Crew>> crews = new HashMap<>();
+            for (Type type : Type.values()) {
+                String input = inputs.get(type);
+                String[] split = input.split(",");
+                crews.put(type, Arrays.stream(split)
+                        .map(Crew::new)
+                        .toList());
+            }
+            return new Crews(crews);
         } catch (Exception e) {
             throw new IllegalArgumentException(ERROR_MSG);
         }
