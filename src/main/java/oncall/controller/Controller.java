@@ -22,10 +22,11 @@ public class Controller {
         Crews crews = readCrews();
 
         while (monthAndWeek != null) {
-            outputView.printMonthAndWeek(monthAndWeek.getDayValue(),
-                    monthAndWeek.getMonthValue(),
-                    monthAndWeek.getWeek()
-            );
+            printMonthAndWeek(monthAndWeek);
+            if (monthAndWeek.isHoliday()) {
+                outputView.printHoliday();
+            }
+            System.out.println();
             monthAndWeek = monthAndWeek.next();
         }
     }
@@ -36,6 +37,13 @@ public class Controller {
 
     private Crews readCrews() {
         return retryUntilValid(() -> InputParser.parseNames(inputView.readCrews()));
+    }
+
+    private void printMonthAndWeek(MonthAndWeek monthAndWeek) {
+        outputView.printMonthAndWeek(monthAndWeek.getDayValue(),
+                monthAndWeek.getMonthValue(),
+                monthAndWeek.getWeek()
+        );
     }
 
     private <T> T retryUntilValid(Supplier<T> supplier) {

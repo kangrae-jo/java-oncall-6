@@ -10,4 +10,8 @@ public class OutputView {
         System.out.print(month + "월 " + day + "일 " + week);
     }
 
+    public void printHoliday() {
+        System.out.print("(휴일)");
+    }
+
 }

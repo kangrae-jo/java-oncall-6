@@ -19,4 +19,13 @@ public enum Holiday {
         this.monthDay = monthDay;
     }
 
+    public static boolean isHoliday(MonthDay monthDay) {
+        for (Holiday holiday : Holiday.values()) {
+            if (holiday.monthDay.equals(monthDay)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
