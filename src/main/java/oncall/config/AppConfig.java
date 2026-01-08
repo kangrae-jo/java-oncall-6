@@ -15,7 +15,7 @@ public class AppConfig {
 
     private InputView inputView() {
         if (inputView == null) {
-            return inputView = new InputView(outputView());
+            return inputView = new InputView();
         }
         return inputView;
     }
@@ -33,6 +33,5 @@ public class AppConfig {
         }
         return controller;
     }
-
 
 }
