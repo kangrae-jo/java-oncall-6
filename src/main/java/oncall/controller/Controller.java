@@ -19,6 +19,7 @@ public class Controller {
 
     public void run() {
         List<Crew> weekday = readCrews();
+        List<Crew> weekend = readCrews();
     }
 
     private List<Crew> readCrews() {
