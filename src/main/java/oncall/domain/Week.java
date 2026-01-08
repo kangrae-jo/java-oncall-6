@@ -39,7 +39,7 @@ public enum Week {
     }
 
     public boolean isWeekend() {
-        return this.order == 6 || this.order == 7;
+        return this.order == 5 || this.order == 6;
     }
 
     public Week next() {
