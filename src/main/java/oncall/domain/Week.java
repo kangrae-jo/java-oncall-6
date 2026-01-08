@@ -38,6 +38,10 @@ public enum Week {
         throw new IllegalArgumentException(ERROR_MSG);
     }
 
+    public boolean isWeekend() {
+        return this.order == 6 || this.order == 7;
+    }
+
     public Week next() {
         return Week.from((this.order + 1) % 7);
     }

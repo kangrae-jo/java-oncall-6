@@ -27,6 +27,10 @@ public class MonthAndWeek {
         return Holiday.isHoliday(monthDay);
     }
 
+    public boolean isWeekend() {
+        return week.isWeekend();
+    }
+
     public int getDayValue() {
         return monthDay.getDayOfMonth();
     }

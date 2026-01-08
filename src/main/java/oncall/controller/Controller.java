@@ -33,6 +33,9 @@ public class Controller {
                 outputView.printHoliday();
                 type = Type.WEEKEND;
             }
+            if (monthAndWeek.isWeekend()) {
+                type = Type.WEEKEND;
+            }
 
             String name = crews.addRoaster(roaster, type);
             outputView.printName(name);
